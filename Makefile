@@ -1,5 +1,5 @@
 cc = gcc
-prom = MorseCodeTool
+prom = MorseCodeTest
 CFLAGS=-I ./include
 deps = $(shell find ./include -name "*.h")
 src = $(shell find ./src -name "*.c")

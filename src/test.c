@@ -51,47 +51,39 @@ Public License instead of this License.
 
 */
 
-#ifndef MORSE_H_
-#define MORSE_H_
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "morse.h"
+
+#define BUF_LEN 300
 
 
-typedef int bool;
-#define false 0
-#define true  1
+int main() {
 
-/*
- *  FAKE_SPACE IS MARING FOR A SPACE
- */
-#define FAKE_SPACE '/'
+	char *mystr = "abcdefghijklmnopqrstuvwxyz0123456789.:,;?='/!-_\"()$&@";
+	char mor[BUF_LEN];
+	char str[BUF_LEN];
+	char out[BUF_LEN];
+	memset(out, 0, BUF_LEN);
+	memset(mor, 0, BUF_LEN);
+	memset(str, 0, BUF_LEN);
 
-/*
- * THE CHARACTER THAT BETWEEN TWO MORSE STRING
- */
-#define SEPARATOR ' '
+	printf("base string:\n%s\n", mystr);
 
-
-typedef struct Morse Morse_t;
-struct Morse{
-	char c[9];
-};
-
+	//TO LOWCASE
+	str2lowcase(mystr, out, BUF_LEN);
+	
+	//TO MORSE STRING
+	String2MorseString(out , mor, BUF_LEN);
+	printf("\nget morse code string:\n%s\n" , mor);
 
 
-Morse_t *new_morse();
+	//TO NORMAL STRING
+	MorseString2String(mor, str, BUF_LEN);
+	printf("\nget decode string:\n%s\n", str);
+  
+	return 0;
+}
 
-bool str2morse(char m , Morse_t *morse);
-bool morse2str(Morse_t *morse, char *ch);
-
-bool mark2morse(char n, Morse_t *morse);
-bool morse2mark(Morse_t *morse, char *n);
-
-bool num2morse(char n, Morse_t *morse);
-bool morse2num(Morse_t *morse, char *n);
-
-void MorseString2String(char *morse ,char *string, int buf_len);
-
-void String2MorseString(char *string ,char *morse, int buf_len);
-
-void str2lowcase(char *str, char *out, int buf_len);
-
-#endif /* MORSE_H_ */
