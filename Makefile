@@ -3,14 +3,13 @@ prom = MorseCodeTest
 CFLAGS=-I ./include
 deps = $(shell find ./include -name "*.h")
 src = $(shell find ./src -name "*.c")
-obj = $(src:%.c=%.o) 
+obj = $(src:%.c=%.so) 
 
 $(prom): $(obj)
 	$(cc) -o $(prom) $(obj)
 
-%.o: %.c $(deps)
-	$(cc) $(CFLAGS) -c $< -o $@
-	
+%.so: %.c $(deps)
+	$(cc) $(CFLAGS) -Wall -g -fPIC -o $@ -c $<
 
 clean:
 	rm -rf $(obj) $(prom)

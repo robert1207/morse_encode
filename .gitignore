@@ -4,6 +4,7 @@
 # User-specific files
 *.txt
 *.o
+*.so
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
