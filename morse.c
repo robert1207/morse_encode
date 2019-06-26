@@ -204,9 +204,9 @@ void MorseString2String(char *morse ,char *string, int buf_len) {
 		else if (morse[a] == SEPARATOR && morse[a-1] != FAKE_SPACE) {//get one charactor
 			if (true == morse2str(temp, &ch) && b < 5) {
 				string[c++] = ch;
-			} else if (true == morse2num(temp, &ch)) {
-				string[c++] = ch;
 			} else if (true == morse2mark(temp, &ch)) {
+				string[c++] = ch;
+			} else if (true == morse2num(temp, &ch)) {
 				string[c++] = ch;
 			} else {
 				printf("has morse that not be decoded !\n");
