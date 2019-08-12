@@ -60,30 +60,77 @@ Public License instead of this License.
 #define BUF_LEN 300
 
 
-int main() {
+int main(int argc, char **argv) {
 
-	char *mystr = "abcdefghijklmnopqrstuvwxyz0123456789.:,;?='/!-_\"()$&@";
+	if(argc < 2)
+	{
+		printf(
+			"\n--list   (-l)	List command."
+			"\n--encode (-e)	Encode string. e.g, MorseCodeTest -e \"Hello world!\""
+			"\n--decode (-d)	Decode Morse code. e.g, MorseCodeTest -d \".- -... -.-. \""
+			"\n\n");
+		exit(0);
+	}
+
 	char mor[BUF_LEN];
 	char str[BUF_LEN];
 	char out[BUF_LEN];
-	memset(out, 0, BUF_LEN);
-	memset(mor, 0, BUF_LEN);
-	memset(str, 0, BUF_LEN);
 
-	printf("base string:\n%s\n", mystr);
+	if(strcmp(*(argv+1), "-l") == 0 || strcmp(*(argv+1), "--list") == 0) 
+	{
 
-	//TO LOWCASE
-	str2lowcase(mystr, out, BUF_LEN);
+		char *mystr = "abcdefghijklmnopqrstuvwxyz0123456789.:,;?='/!-_\"()$&@";
+		memset(out, 0, BUF_LEN);
+		memset(mor, 0, BUF_LEN);
+		memset(str, 0, BUF_LEN);
+
+		printf("base string:\n%s\n", mystr);
+
+		//TO LOWCASE
+		str2lowcase(mystr, out, BUF_LEN);
 	
-	//TO MORSE STRING
-	String2MorseString(out , mor, BUF_LEN);
-	printf("\nget morse code string:\n%s\n" , mor);
+		//TO MORSE STRING
+		String2MorseString(out , mor, BUF_LEN);
+		printf("\nget morse code string:\n%s\n" , mor);
 
 
-	//TO NORMAL STRING
-	MorseString2String(mor, str, BUF_LEN);
-	printf("\nget decode string:\n%s\n", str);
+		//TO NORMAL STRING
+		MorseString2String(mor, str, BUF_LEN);
+		printf("\nget decode string:\n%s\n", str);
+	}
   
+	if(strcmp(*(argv+1), "--encode") == 0 || strcmp(*(argv+1), "-e") == 0)
+	{
+		memset(out, 0, BUF_LEN);
+		memset(mor, 0, BUF_LEN);
+		memset(str, 0, BUF_LEN);
+
+		printf("base string:\n%s\n", *(argv+2));
+
+		//TO LOWCASE
+		str2lowcase(*(argv+2), out, BUF_LEN);
+
+		//TO MORSE STRING
+		String2MorseString(out , mor, BUF_LEN);
+		printf("\nget morse code string:\n%s\n" , mor);
+		
+	}
+
+	if(strcmp(*(argv+1), "--decode") == 0 || strcmp(*(argv+1), "-d") == 0)
+	{
+		memset(out, 0, BUF_LEN);
+		memset(mor, 0, BUF_LEN);
+		memset(str, 0, BUF_LEN);
+
+		printf("base string:\n%s\n", *(argv+2));
+		
+		//TO NORMAL STRING
+		MorseString2String(*(argv+2), str, BUF_LEN);
+		printf("\nget decode string:\n%s\n", str);
+
+	}		
+	
+
 	return 0;
 }
 
