@@ -40,7 +40,7 @@ char mark[][8] = {
 	{'.', '-', '-', '.', '-', '.', '*', '@'} //@	16
 };
 
-#define CHARACTER 26
+#define CHARACTER_LEN 26
 char a2[][4] = {
 {'.','-','*','*'},//A
 {'-','.','.','.'},//B
@@ -70,7 +70,7 @@ char a2[][4] = {
 {'-','-','.','.'} //Z
 };
 
-Morse_t *new_morse() {
+Morse_t* new_morse() {
 	Morse_t *ret;
 	ret = (Morse_t*)malloc(sizeof(Morse_t));
 	memset(ret->c, 0, 9);
@@ -169,7 +169,7 @@ bool str2morse(char m , Morse_t *morse) {
 
 bool morse2str(Morse_t *morse, char *ch) {
 	int i = 0;
-	for (i = 0; i < CHARACTER; i++) {
+	for (i = 0; i < CHARACTER_LEN; i++) {
 		if (a2[i][0] == morse->c[0] &&
 			a2[i][1] == morse->c[1] &&
 			a2[i][2] == morse->c[2] &&
@@ -183,14 +183,15 @@ bool morse2str(Morse_t *morse, char *ch) {
 }
 
 
-void MorseString2String(char *morse ,char *string, int buf_len) {
+void morse_str_to_str(char *morse ,char *string, int buf_len) {
 	Morse_t *temp = new_morse();
 	int a = 0;
 	int b = 0;
 	int c = 0;
 	int len = 0;
 	char ch = '*';
-	memset(temp->c, '*', 8);
+
+	memset(temp->c, '*', 8);//fill the morse-array with '*'
 	len = strlen(morse);
 
 	for ( ; a < len; a ++) {
@@ -221,7 +222,7 @@ void MorseString2String(char *morse ,char *string, int buf_len) {
 	} 
 }
 
-void String2MorseString(char *string ,char *morse, int buf_len) {
+void str_to_morse_str(char *string ,char *morse, int buf_len) {
 	int a = 0;
 	int b = 0;
 	int len = strlen(string);

@@ -7,7 +7,7 @@ typedef int bool;
 #define true  1
 
 /*
- *  FAKE_SPACE IS MARING FOR A SPACE
+ *  FAKE_SPACE IS MARKING FOR A SPACE
  */
 #define FAKE_SPACE '/'
 
@@ -24,7 +24,7 @@ struct Morse{
 
 
 
-Morse_t *new_morse();
+Morse_t* new_morse();
 
 bool str2morse(char m , Morse_t *morse);
 bool morse2str(Morse_t *morse, char *ch);
@@ -35,9 +35,9 @@ bool morse2mark(Morse_t *morse, char *n);
 bool num2morse(char n, Morse_t *morse);
 bool morse2num(Morse_t *morse, char *n);
 
-void MorseString2String(char *morse ,char *string, int buf_len);
+void morse_str_to_str(char *morse ,char *string, int buf_len);
 
-void String2MorseString(char *string ,char *morse, int buf_len);
+void str_to_morse_str(char *string ,char *morse, int buf_len);
 
 void str2lowcase(char *str, char *out, int buf_len);
 

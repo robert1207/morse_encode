@@ -9,7 +9,7 @@
 
 int main() {
 
-	char *mystr = "abcdefghijklmnopqrstuvwxyz0123456789.:,;?='/!-_\"()$&@";
+	char *mystr = "abcdefghijklmnopqrstuvwxyz0123456789.:123,;?='/!-_\"()$&@";
 	char mor[BUF_LEN];
 	char str[BUF_LEN];
 	char out[BUF_LEN];
@@ -23,12 +23,12 @@ int main() {
 	str2lowcase(mystr, out, BUF_LEN);
 	
 	//TO MORSE STRING
-	String2MorseString(out , mor, BUF_LEN);
+	str_to_morse_str(out , mor, BUF_LEN);
 	printf("\nget morse code string:\n%s\n" , mor);
 
 
 	//TO NORMAL STRING
-	MorseString2String(mor, str, BUF_LEN);
+	morse_str_to_str(mor, str, BUF_LEN);
 	printf("\nget decode string:\n%s\n", str);
   
 	return 0;
