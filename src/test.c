@@ -66,8 +66,8 @@ int main(int argc, char **argv) {
 	{
 		printf(
 			"\n--list   (-l)	List command."
-			"\n--encode (-e)	Encode string. e.g, morse-encode-and-decode -e \"Hello world!\""
-			"\n--decode (-d)	Decode Morse code. e.g, morse-encode-and-decode -d \".- -... -.-. \""
+			"\n--encode (-e)	Encode string. e.g.: morse-encode-and-decode -e \"Hello world!\""
+			"\n--decode (-d)	Decode Morse code. e.g.: morse-encode-and-decode -d \".- -... -.-. \""
 			"\n\n");
 		exit(0);
 	}
