@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 	if(argc < 2)
 	{
 		printf(
-			"\n--list   (-l)	List command."
+			"\n--list   (-l)	List morse code table."
 			"\n--encode (-e)	Encode string. e.g.: morse-encode-and-decode -e \"Hello world!\""
 			"\n--decode (-d)	Decode Morse code. e.g.: morse-encode-and-decode -d \".- -... -.-. \""
 			"\n\n");
@@ -84,19 +84,21 @@ int main(int argc, char **argv) {
 		memset(mor, 0, BUF_LEN);
 		memset(str, 0, BUF_LEN);
 
-		printf("base string:\n%s\n", mystr);
-
 		//TO LOWCASE
 		str2lowcase(mystr, out, BUF_LEN);
+		
+		char szTmpOne[4] = "";
+		unsigned int i = 0;
+		for(i = 0; i < strlen(mystr); i++)
+		{
+			memset(szTmpOne, 0, sizeof(szTmpOne));
+			sprintf(szTmpOne, "%c", out[i]);
+			printf("\t%c\t", out[i]);
 	
-		//TO MORSE STRING
-		String2MorseString(out , mor, BUF_LEN);
-		printf("\nget morse code string:\n%s\n" , mor);
-
-
-		//TO NORMAL STRING
-		MorseString2String(mor, str, BUF_LEN);
-		printf("\nget decode string:\n%s\n", str);
+			//TO MORSE STRING
+			String2MorseString(szTmpOne , mor, BUF_LEN);
+			printf("%s\n" , mor);
+		}
 	}
   
 	if(strcmp(*(argv+1), "--encode") == 0 || strcmp(*(argv+1), "-e") == 0)
