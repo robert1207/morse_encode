@@ -17,8 +17,9 @@ morse-encode-and-decode
 ~~~
 
 ## Usage
-morse-encode-and-decode -l
-morse-encode-and-decode {-e|-d} {<string>}
+
+**morse-encode-and-decode -l**
+**morse-encode-and-decode {-e|-d} {<string>}**
 
 ~~~
 
