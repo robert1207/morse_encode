@@ -1,7 +1,7 @@
 /*
 
     morse-encode-and-decode
-    Copyright (C) 2019  Joker2770
+    Copyright (C) 2019-2020  Joker2770
 	Copyright (C) {years}  robert1207
 
     This program is free software; you can redistribute it and/or modify
@@ -62,7 +62,7 @@ Public License instead of this License.
 
 int main(int argc, char **argv) {
 
-	if(argc < 2)
+	if(argc < 2 || 0 == strcmp(*(argv+1), "-h") || 0 == strcmp(*(argv+1), "--help"))
 	{
 		printf(
 			"\n--list   (-l)	List morse code table."
@@ -72,11 +72,11 @@ int main(int argc, char **argv) {
 		exit(0);
 	}
 
-	char mor[BUF_LEN];
-	char str[BUF_LEN];
-	char out[BUF_LEN];
+	char mor[BUF_LEN] = "";
+	char str[BUF_LEN] = "";
+	char out[BUF_LEN] = "";
 
-	if(strcmp(*(argv+1), "-l") == 0 || strcmp(*(argv+1), "--list") == 0) 
+	if(0 == strcmp(*(argv+1), "-l") || 0 == strcmp(*(argv+1), "--list")) 
 	{
 
 		char *mystr = "abcdefghijklmnopqrstuvwxyz0123456789.:,;?='/!-_\"()$&@";
@@ -101,7 +101,7 @@ int main(int argc, char **argv) {
 		}
 	}
   
-	if(strcmp(*(argv+1), "--encode") == 0 || strcmp(*(argv+1), "-e") == 0)
+	if(0 == strcmp(*(argv+1), "--encode") || 0 == strcmp(*(argv+1), "-e"))
 	{
 		memset(out, 0, BUF_LEN);
 		memset(mor, 0, BUF_LEN);
@@ -118,7 +118,7 @@ int main(int argc, char **argv) {
 		
 	}
 
-	if(strcmp(*(argv+1), "--decode") == 0 || strcmp(*(argv+1), "-d") == 0)
+	if(0 == strcmp(*(argv+1), "--decode") || 0 == strcmp(*(argv+1), "-d"))
 	{
 		memset(out, 0, BUF_LEN);
 		memset(mor, 0, BUF_LEN);
