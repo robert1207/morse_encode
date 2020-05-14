@@ -91,6 +91,7 @@ int main(int argc, char **argv) {
 		unsigned int i = 0;
 		for(i = 0; i < strlen(mystr); i++)
 		{
+			memset(mor, 0, BUF_LEN);
 			memset(szTmpOne, 0, sizeof(szTmpOne));
 			sprintf(szTmpOne, "%c", out[i]);
 			printf("\t%c\t", out[i]);
