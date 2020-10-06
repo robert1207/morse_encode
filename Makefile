@@ -3,12 +3,12 @@ prom = morse-encode-and-decode
 CFLAGS=-I ./include
 deps = $(shell find ./include -name "*.h")
 src = $(shell find ./src -name "*.c")
-obj = $(src:%.c=%.so) 
+obj = $(src:%.c=%.o) 
 
 $(prom): $(obj)
 	$(cc) -o $(prom) $(obj)
 
-%.so: %.c $(deps)
+%.o: %.c $(deps)
 	$(cc) $(CFLAGS) -Wall -g -fPIC -shared -o $@ -c $<
 
 clean:

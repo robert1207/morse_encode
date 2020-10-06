@@ -5,7 +5,7 @@
 *.txt
 *.o
 *.so
-MorseCodeTest
+*morse-encode-and-decode
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

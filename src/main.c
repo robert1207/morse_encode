@@ -62,12 +62,13 @@ Public License instead of this License.
 
 int main(int argc, char **argv) {
 
-	if(argc < 2 || 0 == strcmp(*(argv+1), "-h") || 0 == strcmp(*(argv+1), "--help"))
+	if(argc < 2 || 0 == strcmp(*(argv+1), "-h") || 0 == strcmp(*(argv+1), "-H") || 0 == strcmp(*(argv+1), "--help"))
 	{
 		printf(
-			"\n--list   (-l)	List morse code table."
-			"\n--encode (-e)	Encode string. e.g.: morse-encode-and-decode -e \"Hello world!\""
-			"\n--decode (-d)	Decode Morse code. e.g.: morse-encode-and-decode -d \".- -... -.-. \""
+			"\n--list       (-l)	List morse code table."
+			"\n--version    (-v)	show current version."
+			"\n--encode     (-e)	Encode string. e.g.: morse-encode-and-decode -e \"Hello world!\""
+			"\n--decode     (-d)	Decode Morse code. e.g.: morse-encode-and-decode -d \".- -... -.-. \""
 			"\n\n");
 		exit(0);
 	}
@@ -76,7 +77,7 @@ int main(int argc, char **argv) {
 	char str[BUF_LEN] = "";
 	char out[BUF_LEN] = "";
 
-	if(0 == strcmp(*(argv+1), "-l") || 0 == strcmp(*(argv+1), "--list")) 
+	if(0 == strcmp(*(argv+1), "-l") || 0 == strcmp(*(argv+1), "-L") || 0 == strcmp(*(argv+1), "--list")) 
 	{
 
 		char *mystr = "abcdefghijklmnopqrstuvwxyz0123456789.:,;?='/!-_\"()$&@";
@@ -101,8 +102,7 @@ int main(int argc, char **argv) {
 			printf("%s\n" , mor);
 		}
 	}
-  
-	if(0 == strcmp(*(argv+1), "--encode") || 0 == strcmp(*(argv+1), "-e"))
+	else if(0 == strcmp(*(argv+1), "--encode") || 0 == strcmp(*(argv+1), "-e") || 0 == strcmp(*(argv+1), "-E"))
 	{
 		memset(out, 0, BUF_LEN);
 		memset(mor, 0, BUF_LEN);
@@ -118,8 +118,7 @@ int main(int argc, char **argv) {
 		printf("\nget morse code string:\n%s\n" , mor);
 		
 	}
-
-	if(0 == strcmp(*(argv+1), "--decode") || 0 == strcmp(*(argv+1), "-d"))
+	else if(0 == strcmp(*(argv+1), "--decode") || 0 == strcmp(*(argv+1), "-d") || 0 == strcmp(*(argv+1), "-D"))
 	{
 		memset(out, 0, BUF_LEN);
 		memset(mor, 0, BUF_LEN);
@@ -131,8 +130,12 @@ int main(int argc, char **argv) {
 		MorseString2String(*(argv+2), str, BUF_LEN);
 		printf("\nget decode string:\n%s\n", str);
 
-	}		
+	}
 	
+	if (0 == strcmp(*(argv+1), "--version") || 0 == strcmp(*(argv+1), "-v") || 0 == strcmp(*(argv+1), "-V"))
+	{
+		printf("v0.6\n");
+	}
 
 	return 0;
 }
