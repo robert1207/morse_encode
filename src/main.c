@@ -57,7 +57,7 @@ Public License instead of this License.
 
 #include "morse.h"
 
-#define BUF_LEN 300
+#define BUF_LEN 512
 
 
 int main(int argc, char **argv) {
@@ -134,7 +134,7 @@ int main(int argc, char **argv) {
 	
 	if (0 == strcmp(*(argv+1), "--version") || 0 == strcmp(*(argv+1), "-v") || 0 == strcmp(*(argv+1), "-V"))
 	{
-		printf("v0.6\n");
+		printf("v0.7\n");
 	}
 
 	return 0;

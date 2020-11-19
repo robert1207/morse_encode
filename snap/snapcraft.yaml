@@ -1,5 +1,5 @@
 name: morse-encode-and-decode # you probably want to 'snapcraft register <name>'
-version: '0.6' # just for humans, typically '1.2+git' or '1.3.2'
+version: '0.7' # just for humans, typically '1.2+git' or '1.3.2'
 summary: Encoding or decoding with morse # 79 char long summary
 description: |
   A simple command-line tool, create by Joker2770< https://github.com/Joker2770/morse-encode-and-decode >.
@@ -28,3 +28,4 @@ parts:
     # plugin: dump
     # organize:
       # ./morse-encode-and-decode: /bin/morse-encode-and-decode
+      
