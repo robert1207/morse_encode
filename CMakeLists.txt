@@ -4,6 +4,7 @@ project(morse-encode-and-decode)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_C_FLAGS, "-Wall")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "My multi config types" FORCE)
