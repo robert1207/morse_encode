@@ -66,9 +66,9 @@ int main(int argc, char **argv) {
 	{
 		printf(
 			"\n--list       (-l)	List morse code table."
-			"\n--version    (-v)	show current version."
-			"\n--encode     (-e)	Encode string. e.g.: morse-encode-and-decode -e \"Hello world!\""
-			"\n--decode     (-d)	Decode Morse code. e.g.: morse-encode-and-decode -d \".- -... -.-. \""
+			"\n--version    (-v)	Show current version."
+			"\n--encode     (-e)	String to encode. e.g.: morse-encode-and-decode -e \"Hello world!\""
+			"\n--decode     (-d)	String to decode. e.g.: morse-encode-and-decode -d \".- -... -.-. \""
 			"\n\n");
 		exit(0);
 	}
