@@ -1,4 +1,7 @@
 # morse-encode-and-decode
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4781e30bba254e4da7ec8373234718d9)](https://app.codacy.com/gh/Joker2770/morse-encode-and-decode?utm_source=github.com&utm_medium=referral&utm_content=Joker2770/morse-encode-and-decode&utm_campaign=Badge_Grade_Settings)
+
 morse encode and decode
 
 ## Build
